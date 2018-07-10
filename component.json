@@ -1,0 +1,26 @@
+{
+  "title": "D-U-N-S Number API (Java)",
+  "description": "elastic.io component for the D&B Products and Services API",
+  "docsUrl": "https://github.com/ElBabbler/ElasticIoDNBTest/blob/master/README.md",
+  "credentials": {
+    "fields": {
+      "apiKey": {
+        "label": "API key",
+        "required": true,
+        "viewClass": "TextFieldWithNoteView",
+        "note": "Please use <b>elasticio</b> as API key. For more details see <a href='https://github.com/ElBabbler/ElasticIoDNBTest' target='_blank'>ElasticIoDNBTest API readme</a>."
+      }
+    }
+  },
+  "actions": {
+    "getData": {
+      "main": "com.denys.actions.ApiCall",
+      "title": "DNB Test request",
+      "description": "Makes SOAP request to dnb api",
+      "metadata": {
+        "in": "./schemas/newsAndMediaProduct.in.json",
+        "out": "./schemas/newsAndMediaProduct.out.json"
+      }
+    }
+  }
+}
