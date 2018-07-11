@@ -1,0 +1,86 @@
+{
+  "type": "object",
+  "properties": {
+    "orderProductRequestDetail": {
+      "type": "object",
+      "required": true,
+      "title": "orderProductRequestDetail",
+      "properties": {
+        "inquiryDetail": {
+          "type": "object",
+          "required": true,
+          "title": "InquiryDetail",
+          "properties": {
+            "DUNSNumber": {
+              "type": "string",
+              "required": true,
+              "title": "DUNSNumber"
+            }
+          }
+        },
+        "productSpecification": {
+          "type": "object",
+          "required": true,
+          "title": "ProductSpecification",
+          "properties": {
+            "DNBProductID": {
+              "type": "string",
+              "required": true,
+              "title": "DNBProductID"
+            }
+          }
+        },
+        "archiveDetail": {
+          "type": "object",
+          "properties": {
+            "archiveProductOptOutIndicator": {
+              "type": "boolean",
+              "required": true,
+              "title": "ArchiveDetail"
+            }
+          }
+        },
+        "inquiryReferenceDetail": {
+          "type": "object",
+          "required": true,
+          "title": "InquiryReferenceDetailM",
+          "properties": {
+            "customerReferenceText": {
+              "type": "array",
+              "required": true,
+              "properties": {
+                "str": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            },
+            "customerBillingEndorsementText": {
+              "type": "string",
+              "required": true,
+              "title": "customerBillingEndorsementText"
+            }
+          }
+        }
+      }
+    },
+    "transactionDetail": {
+      "type": "object",
+      "required": true,
+      "title": "transactionDetail",
+      "properties": {
+        "applicationTransactionID": {
+          "type": "string",
+          "required": true,
+          "title": "applicationTransactionID"
+        }
+      }
+    },
+    "serviceVersionNumber": {
+      "type": "string",
+      "required": true,
+      "title": "serviceVersionNumber"
+    }
+  }
+}
+
