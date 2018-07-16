@@ -7,19 +7,29 @@
 
 package com.dnb.services.NewsAndMediaProductServiceV2_0;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="yourRootElementName")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class OrderProductResponseDetail  implements java.io.Serializable {
     /* Records data that allows the customer to specify identifying
      * information about the subject being inquired, e.g., the DUNS Number,
      * the address, the telephone number. */
+    @XmlElement
     private com.dnb.services.NewsAndMediaProductServiceV2_0.ProductResponseInquiryDetail inquiryDetail;
 
     /* Records data about the product ordered by the customer and
      * data about the organization on which the customer has placed this
      * order. */
+    @XmlElement
     private com.dnb.services.NewsAndMediaProductServiceV2_0.Product product;
 
     /* Records data that allows the customer to specify information
      * to be linked to the request in order to support subsequent order reconciliation. */
+    @XmlElement
     private com.dnb.services.NewsAndMediaProductServiceV2_0.InquiryReferenceDetail inquiryReferenceDetail;
 
     public OrderProductResponseDetail() {

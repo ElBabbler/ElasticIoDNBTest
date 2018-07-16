@@ -7,19 +7,29 @@
 
 package com.dnb.services.NewsAndMediaProductServiceV2_0;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ResponseTransactionDetail  implements java.io.Serializable {
     /* A number assigned by the calling application to uniquely identify
      * this request. */
+    @XmlElement(name="ApplicationTransactionID")
     private java.lang.String applicationTransactionID;
 
     /* A number assigned by the D&B service to uniquely identify this
      * transaction. */
+    @XmlElement(name="ServiceTransactionID")
     private java.lang.String serviceTransactionID;
 
     /* The date and time when this request was submitted or the date
      * and time when the requesting intermediary, such as a workflow manager
      * or service bus, sent the message to the D&B function, i.e., the date
      * and time when the xml document was created by the requesting intermediary. */
+    @XmlElement(name="TransactionTimestamp")
     private java.util.Calendar transactionTimestamp;
 
     public ResponseTransactionDetail() {
@@ -104,7 +114,7 @@ public class ResponseTransactionDetail  implements java.io.Serializable {
         this.transactionTimestamp = transactionTimestamp;
     }
 
-    private java.lang.Object __equalsCalc = null;
+    private transient java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof ResponseTransactionDetail)) return false;
         ResponseTransactionDetail other = (ResponseTransactionDetail) obj;
@@ -129,7 +139,7 @@ public class ResponseTransactionDetail  implements java.io.Serializable {
         return _equals;
     }
 
-    private boolean __hashCodeCalc = false;
+    private transient boolean __hashCodeCalc = false;
     public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;

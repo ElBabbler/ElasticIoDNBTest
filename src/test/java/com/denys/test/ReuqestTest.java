@@ -2,6 +2,8 @@ package com.denys.test;
 
 import com.denys.utils.RequestManualSender;
 import com.dnb.services.NewsAndMediaProductServiceV2_0.*;
+import com.google.gson.ExclusionStrategy;
+import com.google.gson.FieldAttributes;
 import com.google.gson.Gson;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -10,7 +12,8 @@ import static org.junit.Assert.assertEquals;
 
 public class ReuqestTest {
 
-    public static OrderProductRequest request;
+    private static OrderProductRequest request;
+    private static OrderProductResponse expected;
 
     @BeforeClass
     public static void init() {
@@ -43,6 +46,19 @@ public class ReuqestTest {
         orderProductRequestDetail.setInquiryReferenceDetail(inquiryReferenceDetail);
 
         request.setOrderProductRequestDetail(orderProductRequestDetail);
+
+        expected = new OrderProductResponse();
+        expected.setServiceVersionNumber("3.0");
+
+        ResponseTransactionDetail responseTransactionDetail = new ResponseTransactionDetail();
+        responseTransactionDetail.setApplicationTransactionID("3.0");
+        responseTransactionDetail.setServiceTransactionID("Id-688b4c5b971aeb57900650fe");
+        expected.setTransactionDetail(responseTransactionDetail);
+
+        TransactionResult transactionResult = new TransactionResult();
+        transactionResult.setResultID("CM004");
+        transactionResult.setResultText("Internal D\u0026B system error. Please try again or contact your local Customer Service Center.");
+        expected.setTransactionResult(transactionResult);
     }
 
 
@@ -78,25 +94,8 @@ public class ReuqestTest {
 
         request.setOrderProductRequestDetail(orderProductRequestDetail);
 
-        assertEquals(expected, new Gson().toJson(new RequestManualSender().sendSoapRequest(request)));
+        OrderProductResponse result = new RequestManualSender().sendSoapRequest(request);
+        assertEquals(new Gson().toJson(expected.getServiceVersionNumber()), new Gson().toJson(result.getServiceVersionNumber()));
+        assertEquals(new Gson().toJson(expected.getTransactionResult()), new Gson().toJson(result.getTransactionResult()));
     }
-
-    private static String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\"?> \n" +
-            "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" >\n" +
-            "   <soapenv:Header/>\n" +
-            "<soapenv:Body>\n" +
-            "      <com:NewsAndMediaProductResponse ServiceVersionNumber=\"3.0\" xmlns:com=\"null\">\n" +
-            "         <TransactionDetail>\n" +
-            "            <ApplicationTransactionID>3.0</ApplicationTransactionID>\n" +
-            "            <ServiceTransactionID>Id-83ed445b154a35f5d8c18462</ServiceTransactionID>\n" +
-            "            <TransactionTimestamp>2018-07-10T13:31:47.486-04:00</TransactionTimestamp>\n" +
-            "         </TransactionDetail>\n" +
-            "         <TransactionResult>\n" +
-            "            <SeverityText>Error</SeverityText>\n" +
-            "            <ResultID>CM004</ResultID>\n" +
-            "            <ResultText>Internal D&amp;B system error. Please try again or contact your local Customer Service Center.</ResultText>\n" +
-            "         </TransactionResult>\n" +
-            "</com:NewsAndMediaProductResponse>\n" +
-            "   </soapenv:Body>\n" +
-            "</soapenv:Envelope>";
 }

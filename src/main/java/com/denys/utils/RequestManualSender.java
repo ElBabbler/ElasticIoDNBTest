@@ -106,15 +106,20 @@ public class RequestManualSender implements RequestSender {
             soapResponse.writeTo(baos);
             soapConnection.close();
 
-            DocumentBuilderFactory fctr = DocumentBuilderFactory.newInstance();
-            DocumentBuilder bldr = fctr.newDocumentBuilder();
-            InputSource insrc = new InputSource(new StringReader(new String(baos.toByteArray())));
-
             JAXBContext jaxbContext = JAXBContext.newInstance(OrderProductResponse.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-            OrderProductResponse result = (OrderProductResponse) jaxbUnmarshaller.unmarshal(bldr.parse(insrc));
+            OrderProductResponse result = (OrderProductResponse) jaxbUnmarshaller.unmarshal(
+                    new StringReader(
+                            new String(baos.toByteArray())
+                                    .replaceAll("[\n\r]", "")
+                                    .replaceAll("^.*<soapenv:Body>", "")
+                                    .replaceAll("<\\/soapenv:Body>.*$", "")
+                                    .replaceAll("com:", "")
+                                    .replaceAll("xmlns:com=\"null\"", "")
+                    )
+            );
 
-            return new OrderProductResponse();
+            return result;
         } catch (Exception e) {
             logger.error("\nError occurred while sending SOAP Request to Server!\nMake sure you have the correct endpoint URL and SOAPAction!\n" + e);
             return null;

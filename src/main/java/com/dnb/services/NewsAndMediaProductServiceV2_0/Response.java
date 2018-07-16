@@ -7,15 +7,22 @@
 
 package com.dnb.services.NewsAndMediaProductServiceV2_0;
 
+import javax.xml.bind.annotation.*;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Response  implements java.io.Serializable {
     /* Records information necessary to process a particular request.
      * Examples of a request is the ordering of a product. */
+    @XmlElement(name="TransactionDetail")
     private com.dnb.services.NewsAndMediaProductServiceV2_0.ResponseTransactionDetail transactionDetail;
 
     /* An aggregate that can repeat multiple times to record the different
      * outcomes of the transaction. */
+    @XmlElement(name="TransactionResult")
     private com.dnb.services.NewsAndMediaProductServiceV2_0.TransactionResult transactionResult;
 
+    @XmlAttribute(name="ServiceVersionNumber")
     private java.lang.String serviceVersionNumber;  // attribute
 
     public Response() {

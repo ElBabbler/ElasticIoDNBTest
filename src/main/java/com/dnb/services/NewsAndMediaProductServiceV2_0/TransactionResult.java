@@ -7,6 +7,13 @@
 
 package com.dnb.services.NewsAndMediaProductServiceV2_0;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class TransactionResult  implements java.io.Serializable {
     /* Text that records the criticality of the outcome, e.g., Information,
      * Warning, Error, Fatal. */
@@ -14,9 +21,11 @@ public class TransactionResult  implements java.io.Serializable {
 
     /* An alphanumeric string that uniquely identifies the outcome
      * of the transaction. */
+    @XmlElement(name="ResultID")
     private java.lang.String resultID;
 
     /* Text that explains the outcome of the transaction. */
+    @XmlElement(name="ResultText")
     private java.lang.String resultText;
 
     /* An aggregate that can repeat multiple times to record textual
@@ -140,7 +149,7 @@ public class TransactionResult  implements java.io.Serializable {
         this.resultMessage[i] = _value;
     }
 
-    private java.lang.Object __equalsCalc = null;
+    private transient java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof TransactionResult)) return false;
         TransactionResult other = (TransactionResult) obj;
@@ -168,7 +177,7 @@ public class TransactionResult  implements java.io.Serializable {
         return _equals;
     }
 
-    private boolean __hashCodeCalc = false;
+    private transient boolean __hashCodeCalc = false;
     public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;

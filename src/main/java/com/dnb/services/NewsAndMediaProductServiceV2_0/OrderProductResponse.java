@@ -1,27 +1,33 @@
 /**
  * OrderProductResponse.java
- *
+ * <p>
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
 package com.dnb.services.NewsAndMediaProductServiceV2_0;
 
-public class OrderProductResponse  extends com.dnb.services.NewsAndMediaProductServiceV2_0.Response  implements java.io.Serializable {
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "NewsAndMediaProductResponse")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class OrderProductResponse extends com.dnb.services.NewsAndMediaProductServiceV2_0.Response implements java.io.Serializable {
     private com.dnb.services.NewsAndMediaProductServiceV2_0.OrderProductResponseDetail orderProductResponseDetail;
 
     public OrderProductResponse() {
     }
 
     public OrderProductResponse(
-           java.lang.String serviceVersionNumber,
-           com.dnb.services.NewsAndMediaProductServiceV2_0.ResponseTransactionDetail transactionDetail,
-           com.dnb.services.NewsAndMediaProductServiceV2_0.TransactionResult transactionResult,
-           com.dnb.services.NewsAndMediaProductServiceV2_0.OrderProductResponseDetail orderProductResponseDetail) {
+            java.lang.String serviceVersionNumber,
+            com.dnb.services.NewsAndMediaProductServiceV2_0.ResponseTransactionDetail transactionDetail,
+            com.dnb.services.NewsAndMediaProductServiceV2_0.TransactionResult transactionResult,
+            com.dnb.services.NewsAndMediaProductServiceV2_0.OrderProductResponseDetail orderProductResponseDetail) {
         super(
 
-            transactionDetail,
-            transactionResult,
+                transactionDetail,
+                transactionResult,
                 serviceVersionNumber);
         this.orderProductResponseDetail = orderProductResponseDetail;
     }
@@ -29,7 +35,7 @@ public class OrderProductResponse  extends com.dnb.services.NewsAndMediaProductS
 
     /**
      * Gets the orderProductResponseDetail value for this OrderProductResponse.
-     * 
+     *
      * @return orderProductResponseDetail
      */
     public com.dnb.services.NewsAndMediaProductServiceV2_0.OrderProductResponseDetail getOrderProductResponseDetail() {
@@ -39,14 +45,15 @@ public class OrderProductResponse  extends com.dnb.services.NewsAndMediaProductS
 
     /**
      * Sets the orderProductResponseDetail value for this OrderProductResponse.
-     * 
+     *
      * @param orderProductResponseDetail
      */
     public void setOrderProductResponseDetail(com.dnb.services.NewsAndMediaProductServiceV2_0.OrderProductResponseDetail orderProductResponseDetail) {
         this.orderProductResponseDetail = orderProductResponseDetail;
     }
 
-    private java.lang.Object __equalsCalc = null;
+    private transient java.lang.Object __equalsCalc = null;
+
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof OrderProductResponse)) return false;
         OrderProductResponse other = (OrderProductResponse) obj;
@@ -57,15 +64,16 @@ public class OrderProductResponse  extends com.dnb.services.NewsAndMediaProductS
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = super.equals(obj) && 
-            ((this.orderProductResponseDetail==null && other.getOrderProductResponseDetail()==null) || 
-             (this.orderProductResponseDetail!=null &&
-              this.orderProductResponseDetail.equals(other.getOrderProductResponseDetail())));
+        _equals = super.equals(obj) &&
+                ((this.orderProductResponseDetail == null && other.getOrderProductResponseDetail() == null) ||
+                        (this.orderProductResponseDetail != null &&
+                                this.orderProductResponseDetail.equals(other.getOrderProductResponseDetail())));
         __equalsCalc = null;
         return _equals;
     }
 
-    private boolean __hashCodeCalc = false;
+    private transient boolean __hashCodeCalc = false;
+
     public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
@@ -81,7 +89,7 @@ public class OrderProductResponse  extends com.dnb.services.NewsAndMediaProductS
 
     // Type metadata
     private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(OrderProductResponse.class, true);
+            new org.apache.axis.description.TypeDesc(OrderProductResponse.class, true);
 
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("http://services.dnb.com/NewsAndMediaProductServiceV2.0", "OrderProductResponse"));
@@ -105,24 +113,24 @@ public class OrderProductResponse  extends com.dnb.services.NewsAndMediaProductS
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
+                new org.apache.axis.encoding.ser.BeanSerializer(
+                        _javaType, _xmlType, typeDesc);
     }
 
     /**
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
+                new org.apache.axis.encoding.ser.BeanDeserializer(
+                        _javaType, _xmlType, typeDesc);
     }
 
 }
