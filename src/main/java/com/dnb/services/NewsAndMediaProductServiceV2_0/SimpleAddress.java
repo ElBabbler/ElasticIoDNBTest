@@ -7,6 +7,13 @@
 
 package com.dnb.services.NewsAndMediaProductServiceV2_0;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="SimpleAddress")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class SimpleAddress  implements java.io.Serializable {
     /* An entry loop which can repeat multiple times to allow the
      * recording of  several lines where each address line contains one or
@@ -14,15 +21,18 @@ public class SimpleAddress  implements java.io.Serializable {
      * Street Name, Street Number, Building Name, Estate Name. They are called
      * “lines” because an addres can be divided into multiple lines. When
      * there are multiple lines the sequence of the lines must be preserved. */
+    @XmlElement(name = "StreetAddressLine")
     private com.dnb.services.NewsAndMediaProductServiceV2_0.StreetAddressLine[] streetAddressLine;
 
     /* The name of the town or city recognized by the Postal Authority
      * for delivering mail. */
+    @XmlElement(name = "PrimaryTownName")
     private java.lang.String primaryTownName;
 
     /* The two-letter country code, defined in the ISO 3166-1 scheme
      * published by International Organization for Standardization (ISO),
      * identifying the country for this address. */
+    @XmlElement(name = "CountryISOAlpha2Code")
     private java.lang.String countryISOAlpha2Code;
 
     public SimpleAddress() {
@@ -121,7 +131,7 @@ public class SimpleAddress  implements java.io.Serializable {
         this.countryISOAlpha2Code = countryISOAlpha2Code;
     }
 
-    private java.lang.Object __equalsCalc = null;
+    private transient java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof SimpleAddress)) return false;
         SimpleAddress other = (SimpleAddress) obj;
@@ -146,7 +156,7 @@ public class SimpleAddress  implements java.io.Serializable {
         return _equals;
     }
 
-    private boolean __hashCodeCalc = false;
+    private transient boolean __hashCodeCalc = false;
     public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;

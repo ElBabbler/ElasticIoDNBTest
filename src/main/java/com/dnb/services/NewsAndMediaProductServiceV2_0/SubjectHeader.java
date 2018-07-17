@@ -7,14 +7,23 @@
 
 package com.dnb.services.NewsAndMediaProductServiceV2_0;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="Subject")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class SubjectHeader  implements java.io.Serializable {
     /* The D-U-N-S Number is D&B's identification number, which provides
      * unique identification of this organization, in accordance with the
      * Data Universal Numbering System (D-U-N-S). */
+    @XmlElement(name = "DUNSNumber")
     private java.lang.String DUNSNumber;
 
     /* The date when the data recorded in the D&B Database on this
      * subject was last updated. */
+    @XmlElement(name = "LastUpdateDate")
     private com.dnb.services.NewsAndMediaProductServiceV2_0.DNBDateType lastUpdateDate;
 
     /* When turned ON (set to TRUE) this indicates that the record
@@ -22,10 +31,12 @@ public class SubjectHeader  implements java.io.Serializable {
      * When turned OFF (set to FALSE) this indicates that the record does
      * not satisfy D&B marketability rules; however, there is no requirement
      * to create this tag to represent this fact. */
+    @XmlElement(name = "MarketabilityIndicator")
     private java.lang.Boolean marketabilityIndicator;
 
     /* Text specifying the reason why the subject's data is not considered
      * marketable by D&B. */
+    @XmlElement(name = "NonMarketableReasonText")
     private com.dnb.services.NewsAndMediaProductServiceV2_0.DNBDecodedStringType[] nonMarketableReasonText;
 
     public SubjectHeader() {
@@ -146,7 +157,7 @@ public class SubjectHeader  implements java.io.Serializable {
         this.nonMarketableReasonText[i] = _value;
     }
 
-    private java.lang.Object __equalsCalc = null;
+    private transient java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof SubjectHeader)) return false;
         SubjectHeader other = (SubjectHeader) obj;
@@ -174,7 +185,7 @@ public class SubjectHeader  implements java.io.Serializable {
         return _equals;
     }
 
-    private boolean __hashCodeCalc = false;
+    private transient boolean __hashCodeCalc = false;
     public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;

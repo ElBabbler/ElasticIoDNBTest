@@ -9,11 +9,13 @@ package com.dnb.services.NewsAndMediaProductServiceV2_0;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "NewsAndMediaProductResponse")
+@XmlRootElement(name = "OrderProductResponse")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class OrderProductResponse extends com.dnb.services.NewsAndMediaProductServiceV2_0.Response implements java.io.Serializable {
+    @XmlElement(name = "OrderProductResponseDetail")
     private com.dnb.services.NewsAndMediaProductServiceV2_0.OrderProductResponseDetail orderProductResponseDetail;
 
     public OrderProductResponse() {

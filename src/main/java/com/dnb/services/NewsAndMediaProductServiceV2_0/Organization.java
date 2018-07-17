@@ -7,18 +7,28 @@
 
 package com.dnb.services.NewsAndMediaProductServiceV2_0;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="Organization")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Organization  extends com.dnb.services.NewsAndMediaProductServiceV2_0.Subject  implements java.io.Serializable {
     /* Records the different names of the organization by which it
      * is known as well as names of other organizations that have a similar
      * name to this organization. */
+    @XmlElement(name = "OrganizationName")
     private com.dnb.services.NewsAndMediaProductServiceV2_0.OrganizationName organizationName;
 
+    @XmlElement(name = "OrganizationDetail")
     private com.dnb.services.NewsAndMediaProductServiceV2_0.OrganizationDetail organizationDetail;
 
     /* Records the details on news publications collected for this
      * subject and the details of the online service, platform, or site that
      * focuses on facilitating the building of social networks or social
      * relations among people in which this subject is a participant. */
+    @XmlElement(name = "News")
     private com.dnb.services.NewsAndMediaProductServiceV2_0.NewsDetails[] news;
 
     public Organization() {
@@ -110,7 +120,7 @@ public class Organization  extends com.dnb.services.NewsAndMediaProductServiceV2
         this.news = news;
     }
 
-    private java.lang.Object __equalsCalc = null;
+    private transient java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof Organization)) return false;
         Organization other = (Organization) obj;
@@ -135,7 +145,7 @@ public class Organization  extends com.dnb.services.NewsAndMediaProductServiceV2
         return _equals;
     }
 
-    private boolean __hashCodeCalc = false;
+    private transient boolean __hashCodeCalc = false;
     public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;

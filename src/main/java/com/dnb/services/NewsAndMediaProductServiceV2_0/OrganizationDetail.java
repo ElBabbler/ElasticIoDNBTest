@@ -7,9 +7,18 @@
 
 package com.dnb.services.NewsAndMediaProductServiceV2_0;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="OrganizationDetail")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class OrganizationDetail  implements java.io.Serializable {
+    @XmlElement(name = "FamilyTreeMemberRole")
     private com.dnb.services.NewsAndMediaProductServiceV2_0.FamilyTreeMemberRole[] familyTreeMemberRole;
 
+    @XmlElement(name = "StandaloneOrganizationIndicator")
     private java.lang.Boolean standaloneOrganizationIndicator;
 
     public OrganizationDetail() {
@@ -70,7 +79,7 @@ public class OrganizationDetail  implements java.io.Serializable {
         this.standaloneOrganizationIndicator = standaloneOrganizationIndicator;
     }
 
-    private java.lang.Object __equalsCalc = null;
+    private transient java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof OrganizationDetail)) return false;
         OrganizationDetail other = (OrganizationDetail) obj;
@@ -92,7 +101,7 @@ public class OrganizationDetail  implements java.io.Serializable {
         return _equals;
     }
 
-    private boolean __hashCodeCalc = false;
+    private transient boolean __hashCodeCalc = false;
     public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;

@@ -2,8 +2,6 @@ package com.denys.test;
 
 import com.denys.utils.RequestManualSender;
 import com.dnb.services.NewsAndMediaProductServiceV2_0.*;
-import com.google.gson.ExclusionStrategy;
-import com.google.gson.FieldAttributes;
 import com.google.gson.Gson;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -56,9 +54,11 @@ public class ReuqestTest {
         expected.setTransactionDetail(responseTransactionDetail);
 
         TransactionResult transactionResult = new TransactionResult();
-        transactionResult.setResultID("CM004");
-        transactionResult.setResultText("Internal D\u0026B system error. Please try again or contact your local Customer Service Center.");
+        transactionResult.setResultID("CM000");
+        transactionResult.setResultText("Success");
         expected.setTransactionResult(transactionResult);
+
+
     }
 
 
@@ -77,7 +77,7 @@ public class ReuqestTest {
         inquiryDetail.setDUNSNumber("884114609");
         orderProductRequestDetail.setInquiryDetail(inquiryDetail);
 
-        ProductSpecification productSpecification= new ProductSpecification();
+        ProductSpecification productSpecification = new ProductSpecification();
         productSpecification.setDNBProductID("NEWS_MDA");
         orderProductRequestDetail.setProductSpecification(productSpecification);
 
@@ -97,5 +97,15 @@ public class ReuqestTest {
         OrderProductResponse result = new RequestManualSender().sendSoapRequest(request);
         assertEquals(new Gson().toJson(expected.getServiceVersionNumber()), new Gson().toJson(result.getServiceVersionNumber()));
         assertEquals(new Gson().toJson(expected.getTransactionResult()), new Gson().toJson(result.getTransactionResult()));
+        assertEquals(expectedContent, new Gson().toJson(result.getOrderProductResponseDetail()));
     }
+
+    private static String expectedContent = "{\"inquiryDetail\":{\"DUNSNumber\":\"804735132\",\"countryISOAlpha2Code\":\"US\"}," +
+            "\"product\":{\"DNBProductID\":\"NEWS_MDA\",\"organization\":{\"organizationName\":{\"organizationPrimaryName\":[{\"organizationName\":{}}]}," +
+            "\"organizationDetail\":{\"familyTreeMemberRole\":[{\"familyTreeMemberRoleText\":{\"DNBCodeValue\":9141,\"DNBCodeTableNumber\":0}}]}," +
+            "\"subjectHeader\":{\"DUNSNumber\":\"804735132\"},\"telecommunication\":{\"telephoneNumber\":[{\"telecommunicationNumber\":\"(650) 555-0000\"," +
+            "\"internationalDialingCode\":\"1\"}]},\"location\":{\"primaryAddress\":[{\"territoryAbbreviatedName\":\"CA\"," +
+            "\"postalCode\":\"94110\",\"countyOfficialName\":\"San Francisco County\",\"territoryOfficialName\":\"California\"," +
+            "\"streetAddressLine\":[{\"lineText\":\"492 KOLLER ST\"}],\"primaryTownName\":\"San Francisco\",\"countryISOAlpha2Code\":\"US\"}]," +
+            "\"mailingAddress\":[{\"countryISOAlpha2Code\":\"US\"}]}}}}";
 }

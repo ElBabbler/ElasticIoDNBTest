@@ -1,27 +1,35 @@
 /**
  * FamilyTreeMemberRole.java
- *
+ * <p>
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
 package com.dnb.services.NewsAndMediaProductServiceV2_0;
 
-public class FamilyTreeMemberRole  extends com.dnb.services.NewsAndMediaProductServiceV2_0.Role  implements java.io.Serializable {
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "FamilyTreeMemberRole")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class FamilyTreeMemberRole extends com.dnb.services.NewsAndMediaProductServiceV2_0.Role implements java.io.Serializable {
+    @XmlElement(name = "FamilyTreeMemberRoleText")
     private com.dnb.services.NewsAndMediaProductServiceV2_0.DNBDecodedStringType familyTreeMemberRoleText;
 
     public FamilyTreeMemberRole() {
     }
 
     public FamilyTreeMemberRole(
-           com.dnb.services.NewsAndMediaProductServiceV2_0.DNBDecodedStringType familyTreeMemberRoleText) {
+            com.dnb.services.NewsAndMediaProductServiceV2_0.DNBDecodedStringType familyTreeMemberRoleText) {
         this.familyTreeMemberRoleText = familyTreeMemberRoleText;
     }
 
 
     /**
      * Gets the familyTreeMemberRoleText value for this FamilyTreeMemberRole.
-     * 
+     *
      * @return familyTreeMemberRoleText
      */
     public com.dnb.services.NewsAndMediaProductServiceV2_0.DNBDecodedStringType getFamilyTreeMemberRoleText() {
@@ -31,14 +39,15 @@ public class FamilyTreeMemberRole  extends com.dnb.services.NewsAndMediaProductS
 
     /**
      * Sets the familyTreeMemberRoleText value for this FamilyTreeMemberRole.
-     * 
+     *
      * @param familyTreeMemberRoleText
      */
     public void setFamilyTreeMemberRoleText(com.dnb.services.NewsAndMediaProductServiceV2_0.DNBDecodedStringType familyTreeMemberRoleText) {
         this.familyTreeMemberRoleText = familyTreeMemberRoleText;
     }
 
-    private java.lang.Object __equalsCalc = null;
+    private transient java.lang.Object __equalsCalc = null;
+
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof FamilyTreeMemberRole)) return false;
         FamilyTreeMemberRole other = (FamilyTreeMemberRole) obj;
@@ -49,15 +58,16 @@ public class FamilyTreeMemberRole  extends com.dnb.services.NewsAndMediaProductS
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = super.equals(obj) && 
-            ((this.familyTreeMemberRoleText==null && other.getFamilyTreeMemberRoleText()==null) || 
-             (this.familyTreeMemberRoleText!=null &&
-              this.familyTreeMemberRoleText.equals(other.getFamilyTreeMemberRoleText())));
+        _equals = super.equals(obj) &&
+                ((this.familyTreeMemberRoleText == null && other.getFamilyTreeMemberRoleText() == null) ||
+                        (this.familyTreeMemberRoleText != null &&
+                                this.familyTreeMemberRoleText.equals(other.getFamilyTreeMemberRoleText())));
         __equalsCalc = null;
         return _equals;
     }
 
-    private boolean __hashCodeCalc = false;
+    private transient boolean __hashCodeCalc = false;
+
     public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
@@ -73,7 +83,7 @@ public class FamilyTreeMemberRole  extends com.dnb.services.NewsAndMediaProductS
 
     // Type metadata
     private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(FamilyTreeMemberRole.class, true);
+            new org.apache.axis.description.TypeDesc(FamilyTreeMemberRole.class, true);
 
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("http://services.dnb.com/NewsAndMediaProductServiceV2.0", "FamilyTreeMemberRole"));
@@ -97,24 +107,24 @@ public class FamilyTreeMemberRole  extends com.dnb.services.NewsAndMediaProductS
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
+                new org.apache.axis.encoding.ser.BeanSerializer(
+                        _javaType, _xmlType, typeDesc);
     }
 
     /**
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
+                new org.apache.axis.encoding.ser.BeanDeserializer(
+                        _javaType, _xmlType, typeDesc);
     }
 
 }

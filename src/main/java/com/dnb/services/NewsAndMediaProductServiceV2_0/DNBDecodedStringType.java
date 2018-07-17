@@ -7,9 +7,15 @@
 
 package com.dnb.services.NewsAndMediaProductServiceV2_0;
 
+import javax.xml.bind.annotation.*;
+
+@XmlRootElement(name="DNBDecodedStringType")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DNBDecodedStringType  implements java.io.Serializable, org.apache.axis.encoding.SimpleType {
+    @XmlAttribute(name = "DNBCodeValue")
     private java.math.BigInteger DNBCodeValue;  // attribute
 
+    @XmlAttribute(name = "DNBCodeTableNumber")
     private int DNBCodeTableNumber;  // attribute
 
     public DNBDecodedStringType() {
@@ -68,7 +74,7 @@ public class DNBDecodedStringType  implements java.io.Serializable, org.apache.a
         this.DNBCodeTableNumber = DNBCodeTableNumber;
     }
 
-    private java.lang.Object __equalsCalc = null;
+    private transient java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof DNBDecodedStringType)) return false;
         DNBDecodedStringType other = (DNBDecodedStringType) obj;
@@ -88,7 +94,7 @@ public class DNBDecodedStringType  implements java.io.Serializable, org.apache.a
         return _equals;
     }
 
-    private boolean __hashCodeCalc = false;
+    private transient boolean __hashCodeCalc = false;
     public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;

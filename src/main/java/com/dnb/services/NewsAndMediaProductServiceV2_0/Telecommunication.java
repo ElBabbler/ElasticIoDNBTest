@@ -8,24 +8,34 @@
 package com.dnb.services.NewsAndMediaProductServiceV2_0;
 
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * Records information about the different modes of Telecommunication
  * addresses used by a subject for external contact purposes. The modes
  * of communication include telephone, fax, e-mail, web address.
  */
+@XmlRootElement(name="Telecommunication")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Telecommunication  implements java.io.Serializable {
     /* An entry loop which can allow multiple Telephone contact information
      * used for voice communication with the subject. */
+    @XmlElement(name = "TelephoneNumber")
     private com.dnb.services.NewsAndMediaProductServiceV2_0.TelecommunicationNumberType[] telephoneNumber;
 
     /* An entry loop which can allow multiple Facsimile contact information
      * used for data communication with the subject. */
+    @XmlElement(name = "FacsimileNumber")
     private com.dnb.services.NewsAndMediaProductServiceV2_0.TelecommunicationNumberType[] facsimileNumber;
 
     /* An entry loop which can repeat multiple times to allow the
      * recording of the details of the interactive platforms via which subject
      * creates and shares user-generated content; e.g., Internet forums,
      * weblogs, social blogs, wikis, social networks. */
+    @XmlElement(name = "SocialMediaDetail")
     private com.dnb.services.NewsAndMediaProductServiceV2_0.SocialMediaDetail[] socialMediaDetail;
 
     public Telecommunication() {
@@ -134,7 +144,7 @@ public class Telecommunication  implements java.io.Serializable {
         this.socialMediaDetail[i] = _value;
     }
 
-    private java.lang.Object __equalsCalc = null;
+    private transient java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof Telecommunication)) return false;
         Telecommunication other = (Telecommunication) obj;
@@ -159,7 +169,7 @@ public class Telecommunication  implements java.io.Serializable {
         return _equals;
     }
 
-    private boolean __hashCodeCalc = false;
+    private transient boolean __hashCodeCalc = false;
     public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;

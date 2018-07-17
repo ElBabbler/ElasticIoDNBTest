@@ -4,17 +4,13 @@ import com.dnb.services.NewsAndMediaProductServiceV2_0.OrderProductRequest;
 import com.dnb.services.NewsAndMediaProductServiceV2_0.OrderProductResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.w3c.dom.Document;
-import org.xml.sax.InputSource;
 
 import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.namespace.QName;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.soap.*;
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.StringReader;
 
 public class RequestManualSender implements RequestSender {
 
@@ -23,7 +19,7 @@ public class RequestManualSender implements RequestSender {
     @Override
     public OrderProductResponse sendSoapRequest(OrderProductRequest request) {
         String soapEndpointUrl = "https://direct.dnb.com/NewsAndMediaProduct/V3.0";
-        String soapAction = "NewsAndMediaProduct";
+        String soapAction = "http://services.dnb.com/NewsAndMediaProductService/V3.0/OrderProduct";
 
         return this.callSoapWebService(soapEndpointUrl, soapAction, request);
     }
@@ -112,10 +108,10 @@ public class RequestManualSender implements RequestSender {
                     new StringReader(
                             new String(baos.toByteArray())
                                     .replaceAll("[\n\r]", "")
-                                    .replaceAll("^.*<soapenv:Body>", "")
-                                    .replaceAll("<\\/soapenv:Body>.*$", "")
-                                    .replaceAll("com:", "")
-                                    .replaceAll("xmlns:com=\"null\"", "")
+                                    .replaceAll("^.*-env=\"http://schemas.xmlsoap.org/soap/envelope/\">", "")
+                                    .replaceAll("</soap-env:Body>.*$", "")
+                                    .replaceAll("new:", "")
+                                    .replaceAll("xmlns:new=\"http://services.dnb.com/NewsAndMediaProductServiceV2.0\"", "")
                     )
             );
 

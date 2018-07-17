@@ -7,18 +7,27 @@
 
 package com.dnb.services.NewsAndMediaProductServiceV2_0;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="TelecommunicationNumberSimpleType")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class TelecommunicationNumberSimpleType  implements java.io.Serializable {
     /* A sequence of digits used by the subject for voice communication
      * in a public switched telephone network.
      * This sequence of digits includes the area code or city code.
      * Note: This number does not include the International Dialing Code
      * and Domestic Dialing Code. */
+    @XmlElement(name = "TelecommunicationNumber")
     private java.lang.String telecommunicationNumber;
 
     /* The country calling code assigned by the International Telecommunication
      * Union (ITU) required to connect to this Telecommunication Number of
      * the subject country when dialing from outside the subject country;
      * e.g., '1' for the US, '44' for the UK, '91' for India. */
+    @XmlElement(name = "InternationalDialingCode")
     private java.lang.String internationalDialingCode;
 
     public TelecommunicationNumberSimpleType() {

@@ -7,15 +7,24 @@
 
 package com.dnb.services.NewsAndMediaProductServiceV2_0;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="ProductResponseInquiryDetail")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ProductResponseInquiryDetail  implements java.io.Serializable {
     /* The D&B's identification number, which provides unique identification
      * of the inquired organization, in accordance with the Data Universal
      * Numbering System (D-U-N-S). */
+    @XmlElement(name = "DUNSNumber")
     private java.lang.String DUNSNumber;
 
     /* The two-letter country code, defined in the ISO 3166-1 scheme
      * published by International Organization for Standardization (ISO)identifying
      * the country of the inquired subject. */
+    @XmlElement(name = "CountryISOAlpha2Code")
     private java.lang.String countryISOAlpha2Code;
 
     public ProductResponseInquiryDetail() {
@@ -76,7 +85,7 @@ public class ProductResponseInquiryDetail  implements java.io.Serializable {
         this.countryISOAlpha2Code = countryISOAlpha2Code;
     }
 
-    private java.lang.Object __equalsCalc = null;
+    private transient java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof ProductResponseInquiryDetail)) return false;
         ProductResponseInquiryDetail other = (ProductResponseInquiryDetail) obj;
@@ -98,7 +107,7 @@ public class ProductResponseInquiryDetail  implements java.io.Serializable {
         return _equals;
     }
 
-    private boolean __hashCodeCalc = false;
+    private transient boolean __hashCodeCalc = false;
     public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;

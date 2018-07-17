@@ -8,22 +8,31 @@
 package com.dnb.services.NewsAndMediaProductServiceV2_0;
 
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * Records the address details for a subject. An address is the designation
  * of a place where a subject can be located or may be communicated with,
  * e.g., primary address, registered address, mailing address.
  */
+@XmlRootElement(name="Subject")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Location  implements java.io.Serializable {
     /* An entry loop to allow the recording of a single primary or
      * physical address of the subject in multiple languages and/or writing
      * scripts. For an organization this is the principal address at which
      * the organization is located. For an individual, this is the home address. */
+    @XmlElement(name = "PrimaryAddress")
     private com.dnb.services.NewsAndMediaProductServiceV2_0.PrimaryAddressType[] primaryAddress;
 
     /* An entry loop which can repeat multiple times to allow the
      * recording of address which is mainly utilized for the purpose of mail
      * delivery. This usually includes a Post Office Box number or similar
      * mailing details. */
+    @XmlElement(name = "MailingAddress")
     private com.dnb.services.NewsAndMediaProductServiceV2_0.MailAddressType[] mailingAddress;
 
     public Location() {
@@ -104,7 +113,7 @@ public class Location  implements java.io.Serializable {
         this.mailingAddress[i] = _value;
     }
 
-    private java.lang.Object __equalsCalc = null;
+    private transient java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof Location)) return false;
         Location other = (Location) obj;
@@ -126,7 +135,7 @@ public class Location  implements java.io.Serializable {
         return _equals;
     }
 
-    private boolean __hashCodeCalc = false;
+    private transient boolean __hashCodeCalc = false;
     public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;

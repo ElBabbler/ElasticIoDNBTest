@@ -7,23 +7,36 @@
 
 package com.dnb.services.NewsAndMediaProductServiceV2_0;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="BaseAddressType")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class BaseAddressType  extends com.dnb.services.NewsAndMediaProductServiceV2_0.SimpleAddress  implements java.io.Serializable {
     /* The shortened name of the locally governed area which forms
      * part of a centrally governed nation. For example 'NJ' for the US State
      * New Jersey within Country United States of America. */
+    @XmlElement(name = "TerritoryAbbreviatedName")
     private java.lang.String territoryAbbreviatedName;
 
     /* An identifier used by the local country Postal Authority to
      * identify a particular geographic location. For example, in Belgium,
      * Postal Code 9000 identifies the town of GHENT. */
+    @XmlElement(name = "PostalCode")
     private java.lang.String postalCode;
 
+    @XmlElement(name = "CountyOfficialName")
     private java.lang.String countyOfficialName;
 
+    @XmlElement(name = "TerritoryOfficialName")
     private java.lang.String territoryOfficialName;
 
+    @XmlElement(name = "LanguageCode")
     private java.math.BigInteger languageCode;  // attribute
 
+    @XmlElement(name = "WritingScriptCode")
     private java.math.BigInteger writingScriptCode;  // attribute
 
     public BaseAddressType() {

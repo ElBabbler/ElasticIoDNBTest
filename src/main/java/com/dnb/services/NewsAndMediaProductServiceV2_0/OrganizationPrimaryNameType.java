@@ -7,6 +7,12 @@
 
 package com.dnb.services.NewsAndMediaProductServiceV2_0;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="OrganizationPrimaryNameType")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class OrganizationPrimaryNameType  extends com.dnb.services.NewsAndMediaProductServiceV2_0.OrganizationNameBaseType  implements java.io.Serializable {
     public OrganizationPrimaryNameType() {
     }
@@ -17,7 +23,7 @@ public class OrganizationPrimaryNameType  extends com.dnb.services.NewsAndMediaP
             organizationName);
     }
 
-    private java.lang.Object __equalsCalc = null;
+    private transient java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof OrganizationPrimaryNameType)) return false;
         OrganizationPrimaryNameType other = (OrganizationPrimaryNameType) obj;
@@ -33,7 +39,7 @@ public class OrganizationPrimaryNameType  extends com.dnb.services.NewsAndMediaP
         return _equals;
     }
 
-    private boolean __hashCodeCalc = false;
+    private transient boolean __hashCodeCalc = false;
     public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;

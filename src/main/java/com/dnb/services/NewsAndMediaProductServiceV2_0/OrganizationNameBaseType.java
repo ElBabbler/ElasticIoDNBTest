@@ -1,29 +1,37 @@
 /**
  * OrganizationNameBaseType.java
- *
+ * <p>
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
 package com.dnb.services.NewsAndMediaProductServiceV2_0;
 
-public class OrganizationNameBaseType  implements java.io.Serializable {
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "OrganizationPrimaryNameType")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class OrganizationNameBaseType implements java.io.Serializable {
     /* Text recording a name of this organization in the specified
      * language and/or writing script. */
+    @XmlElement(name = "OrganizationName")
     private com.dnb.services.NewsAndMediaProductServiceV2_0.DNBStringType256 organizationName;
 
     public OrganizationNameBaseType() {
     }
 
     public OrganizationNameBaseType(
-           com.dnb.services.NewsAndMediaProductServiceV2_0.DNBStringType256 organizationName) {
-           this.organizationName = organizationName;
+            com.dnb.services.NewsAndMediaProductServiceV2_0.DNBStringType256 organizationName) {
+        this.organizationName = organizationName;
     }
 
 
     /**
      * Gets the organizationName value for this OrganizationNameBaseType.
-     * 
+     *
      * @return organizationName   * Text recording a name of this organization in the specified
      * language and/or writing script.
      */
@@ -34,7 +42,7 @@ public class OrganizationNameBaseType  implements java.io.Serializable {
 
     /**
      * Sets the organizationName value for this OrganizationNameBaseType.
-     * 
+     *
      * @param organizationName   * Text recording a name of this organization in the specified
      * language and/or writing script.
      */
@@ -43,6 +51,7 @@ public class OrganizationNameBaseType  implements java.io.Serializable {
     }
 
     private transient java.lang.Object __equalsCalc = null;
+
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof OrganizationNameBaseType)) return false;
         OrganizationNameBaseType other = (OrganizationNameBaseType) obj;
@@ -53,15 +62,16 @@ public class OrganizationNameBaseType  implements java.io.Serializable {
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.organizationName==null && other.getOrganizationName()==null) || 
-             (this.organizationName!=null &&
-              this.organizationName.equals(other.getOrganizationName())));
+        _equals = true &&
+                ((this.organizationName == null && other.getOrganizationName() == null) ||
+                        (this.organizationName != null &&
+                                this.organizationName.equals(other.getOrganizationName())));
         __equalsCalc = null;
         return _equals;
     }
 
     private transient boolean __hashCodeCalc = false;
+
     public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
@@ -77,7 +87,7 @@ public class OrganizationNameBaseType  implements java.io.Serializable {
 
     // Type metadata
     private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(OrganizationNameBaseType.class, true);
+            new org.apache.axis.description.TypeDesc(OrganizationNameBaseType.class, true);
 
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("http://services.dnb.com/NewsAndMediaProductServiceV2.0", "OrganizationNameBaseType"));
@@ -100,24 +110,24 @@ public class OrganizationNameBaseType  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
+                new org.apache.axis.encoding.ser.BeanSerializer(
+                        _javaType, _xmlType, typeDesc);
     }
 
     /**
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
+                new org.apache.axis.encoding.ser.BeanDeserializer(
+                        _javaType, _xmlType, typeDesc);
     }
 
 }

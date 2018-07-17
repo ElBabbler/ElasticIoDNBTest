@@ -7,24 +7,36 @@
 
 package com.dnb.services.NewsAndMediaProductServiceV2_0;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="Product")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Product  implements java.io.Serializable {
     /* An alphanumeric string that uniquely identifies this product. */
+    @XmlElement(name = "DNBProductID")
     private java.lang.String DNBProductID;
 
     /* A D&B code value that defines the language in which the requested
      * product is fulfilled. */
+    @XmlElement(name = "LanguageCode")
     private java.math.BigInteger languageCode;
 
     /* Records data about an organization, a legal or commercial entity
      * established to provide products and/or services in the marketplace
      * or to the community. */
+    @XmlElement(name = "Organization")
     private com.dnb.services.NewsAndMediaProductServiceV2_0.Organization organization;
 
     /* Records data about the archival details of the product requested. */
+    @XmlElement(name = "ResponseArchiveDetail")
     private com.dnb.services.NewsAndMediaProductServiceV2_0.ResponseArchiveDetail archiveDetail;
 
     /* Text that specifies the underlying claim to copyright ownership
      * of this product. */
+    @XmlElement(name = "CopyrightNoticeText")
     private java.lang.String copyrightNoticeText;
 
     public Product() {
@@ -151,7 +163,7 @@ public class Product  implements java.io.Serializable {
         this.copyrightNoticeText = copyrightNoticeText;
     }
 
-    private java.lang.Object __equalsCalc = null;
+    private transient java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof Product)) return false;
         Product other = (Product) obj;
@@ -182,7 +194,7 @@ public class Product  implements java.io.Serializable {
         return _equals;
     }
 
-    private boolean __hashCodeCalc = false;
+    private transient boolean __hashCodeCalc = false;
     public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;

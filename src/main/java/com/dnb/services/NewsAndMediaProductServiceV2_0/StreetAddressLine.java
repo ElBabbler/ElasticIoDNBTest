@@ -8,6 +8,11 @@
 package com.dnb.services.NewsAndMediaProductServiceV2_0;
 
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * An entry loop which can repeat multiple times to allow the recording
  * of several street address lines of this address. This includes address
@@ -16,11 +21,14 @@ package com.dnb.services.NewsAndMediaProductServiceV2_0;
  * street address components, such as street name, street number, building
  * name, estate name.
  */
+@XmlRootElement(name="StreetAddressLine")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class StreetAddressLine  implements java.io.Serializable {
     /* Text that records the street address components as it would
      * be presented on an address label. This includes, but is not limited
      * to, details such as street name, street number, building name, estate
      * name. */
+    @XmlElement(name = "LineText")
     private java.lang.String lineText;
 
     public StreetAddressLine() {
@@ -57,7 +65,7 @@ public class StreetAddressLine  implements java.io.Serializable {
         this.lineText = lineText;
     }
 
-    private java.lang.Object __equalsCalc = null;
+    private transient java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof StreetAddressLine)) return false;
         StreetAddressLine other = (StreetAddressLine) obj;
@@ -76,7 +84,7 @@ public class StreetAddressLine  implements java.io.Serializable {
         return _equals;
     }
 
-    private boolean __hashCodeCalc = false;
+    private transient boolean __hashCodeCalc = false;
     public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;

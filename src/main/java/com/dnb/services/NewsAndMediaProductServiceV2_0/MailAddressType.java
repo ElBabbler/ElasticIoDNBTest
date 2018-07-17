@@ -7,6 +7,12 @@
 
 package com.dnb.services.NewsAndMediaProductServiceV2_0;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="MailAddressType")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class MailAddressType  extends com.dnb.services.NewsAndMediaProductServiceV2_0.BaseAddressType  implements java.io.Serializable {
     public MailAddressType() {
     }

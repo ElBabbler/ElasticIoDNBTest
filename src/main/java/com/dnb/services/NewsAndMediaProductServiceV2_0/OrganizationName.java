@@ -1,30 +1,39 @@
 /**
  * OrganizationName.java
- *
+ * <p>
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
 package com.dnb.services.NewsAndMediaProductServiceV2_0;
 
-public class OrganizationName  extends com.dnb.services.NewsAndMediaProductServiceV2_0.SubjectName  implements java.io.Serializable {
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "OrganizationName")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class OrganizationName extends com.dnb.services.NewsAndMediaProductServiceV2_0.SubjectName implements java.io.Serializable {
     /* An entry loop which can repeat multiple times to allow the
      * recording of a single name by which the organization is primarily
      * known / identified in different languages and/or writing scripts. */
+    @XmlElement(name = "OrganizationPrimaryName")
     private com.dnb.services.NewsAndMediaProductServiceV2_0.OrganizationPrimaryNameType[] organizationPrimaryName;
 
     /* An entry loop which can repeat multiple times to allow the
      * recording of a name which an organization trades under for commercial
      * purposes, although its registered, legal name, used for contracts
      * and other formal situations, may be another. */
+    @XmlElement(name = "TradeStyleName")
     private com.dnb.services.NewsAndMediaProductServiceV2_0.OrganizationNameBaseType[] tradeStyleName;
 
     public OrganizationName() {
     }
 
     public OrganizationName(
-           com.dnb.services.NewsAndMediaProductServiceV2_0.OrganizationPrimaryNameType[] organizationPrimaryName,
-           com.dnb.services.NewsAndMediaProductServiceV2_0.OrganizationNameBaseType[] tradeStyleName) {
+            com.dnb.services.NewsAndMediaProductServiceV2_0.OrganizationPrimaryNameType[] organizationPrimaryName,
+            com.dnb.services.NewsAndMediaProductServiceV2_0.OrganizationNameBaseType[] tradeStyleName) {
         this.organizationPrimaryName = organizationPrimaryName;
         this.tradeStyleName = tradeStyleName;
     }
@@ -32,7 +41,7 @@ public class OrganizationName  extends com.dnb.services.NewsAndMediaProductServi
 
     /**
      * Gets the organizationPrimaryName value for this OrganizationName.
-     * 
+     *
      * @return organizationPrimaryName   * An entry loop which can repeat multiple times to allow the
      * recording of a single name by which the organization is primarily
      * known / identified in different languages and/or writing scripts.
@@ -44,7 +53,7 @@ public class OrganizationName  extends com.dnb.services.NewsAndMediaProductServi
 
     /**
      * Sets the organizationPrimaryName value for this OrganizationName.
-     * 
+     *
      * @param organizationPrimaryName   * An entry loop which can repeat multiple times to allow the
      * recording of a single name by which the organization is primarily
      * known / identified in different languages and/or writing scripts.
@@ -64,7 +73,7 @@ public class OrganizationName  extends com.dnb.services.NewsAndMediaProductServi
 
     /**
      * Gets the tradeStyleName value for this OrganizationName.
-     * 
+     *
      * @return tradeStyleName   * An entry loop which can repeat multiple times to allow the
      * recording of a name which an organization trades under for commercial
      * purposes, although its registered, legal name, used for contracts
@@ -77,7 +86,7 @@ public class OrganizationName  extends com.dnb.services.NewsAndMediaProductServi
 
     /**
      * Sets the tradeStyleName value for this OrganizationName.
-     * 
+     *
      * @param tradeStyleName   * An entry loop which can repeat multiple times to allow the
      * recording of a name which an organization trades under for commercial
      * purposes, although its registered, legal name, used for contracts
@@ -96,6 +105,7 @@ public class OrganizationName  extends com.dnb.services.NewsAndMediaProductServi
     }
 
     private transient java.lang.Object __equalsCalc = null;
+
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof OrganizationName)) return false;
         OrganizationName other = (OrganizationName) obj;
@@ -106,18 +116,19 @@ public class OrganizationName  extends com.dnb.services.NewsAndMediaProductServi
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = super.equals(obj) && 
-            ((this.organizationPrimaryName==null && other.getOrganizationPrimaryName()==null) || 
-             (this.organizationPrimaryName!=null &&
-              java.util.Arrays.equals(this.organizationPrimaryName, other.getOrganizationPrimaryName()))) &&
-            ((this.tradeStyleName==null && other.getTradeStyleName()==null) || 
-             (this.tradeStyleName!=null &&
-              java.util.Arrays.equals(this.tradeStyleName, other.getTradeStyleName())));
+        _equals = super.equals(obj) &&
+                ((this.organizationPrimaryName == null && other.getOrganizationPrimaryName() == null) ||
+                        (this.organizationPrimaryName != null &&
+                                java.util.Arrays.equals(this.organizationPrimaryName, other.getOrganizationPrimaryName()))) &&
+                ((this.tradeStyleName == null && other.getTradeStyleName() == null) ||
+                        (this.tradeStyleName != null &&
+                                java.util.Arrays.equals(this.tradeStyleName, other.getTradeStyleName())));
         __equalsCalc = null;
         return _equals;
     }
 
     private transient boolean __hashCodeCalc = false;
+
     public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
@@ -125,23 +136,23 @@ public class OrganizationName  extends com.dnb.services.NewsAndMediaProductServi
         __hashCodeCalc = true;
         int _hashCode = super.hashCode();
         if (getOrganizationPrimaryName() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getOrganizationPrimaryName());
+            for (int i = 0;
+                 i < java.lang.reflect.Array.getLength(getOrganizationPrimaryName());
                  i++) {
                 java.lang.Object obj = java.lang.reflect.Array.get(getOrganizationPrimaryName(), i);
                 if (obj != null &&
-                    !obj.getClass().isArray()) {
+                        !obj.getClass().isArray()) {
                     _hashCode += obj.hashCode();
                 }
             }
         }
         if (getTradeStyleName() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getTradeStyleName());
+            for (int i = 0;
+                 i < java.lang.reflect.Array.getLength(getTradeStyleName());
                  i++) {
                 java.lang.Object obj = java.lang.reflect.Array.get(getTradeStyleName(), i);
                 if (obj != null &&
-                    !obj.getClass().isArray()) {
+                        !obj.getClass().isArray()) {
                     _hashCode += obj.hashCode();
                 }
             }
@@ -152,7 +163,7 @@ public class OrganizationName  extends com.dnb.services.NewsAndMediaProductServi
 
     // Type metadata
     private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(OrganizationName.class, true);
+            new org.apache.axis.description.TypeDesc(OrganizationName.class, true);
 
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("http://services.dnb.com/NewsAndMediaProductServiceV2.0", "OrganizationName"));
@@ -185,24 +196,24 @@ public class OrganizationName  extends com.dnb.services.NewsAndMediaProductServi
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
+                new org.apache.axis.encoding.ser.BeanSerializer(
+                        _javaType, _xmlType, typeDesc);
     }
 
     /**
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
+                new org.apache.axis.encoding.ser.BeanDeserializer(
+                        _javaType, _xmlType, typeDesc);
     }
 
 }

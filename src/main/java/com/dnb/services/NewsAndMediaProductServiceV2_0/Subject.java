@@ -7,21 +7,31 @@
 
 package com.dnb.services.NewsAndMediaProductServiceV2_0;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="Subject")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Subject  implements java.io.Serializable {
     /* Records high level information about the subject such as the
      * primary language of the subject and the primary currency in which
      * this subject trades. When the subject is an organizantion, this may
      * also include details such as DUNS Number. */
+    @XmlElement(name = "SubjectHeader")
     private com.dnb.services.NewsAndMediaProductServiceV2_0.SubjectHeader subjectHeader;
 
     /* Records information about the different modes of Telecommunication
      * addresses used by a subject for external contact purposes. The modes
      * of communication include telephone, fax, e-mail, web address. */
+    @XmlElement(name = "Telecommunication")
     private com.dnb.services.NewsAndMediaProductServiceV2_0.Telecommunication telecommunication;
 
     /* Records the address details for a subject. An address is the
      * designation of a place where a subject can be located or may be communicated
      * with, e.g., primary address, registered address, mailing address. */
+    @XmlElement(name = "Location")
     private com.dnb.services.NewsAndMediaProductServiceV2_0.Location location;
 
     public Subject() {
